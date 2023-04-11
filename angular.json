@@ -25,7 +25,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              //"src/assets/css/app.min.css",
+              //"src/assets/css/bootstrap.min.css",
+              //"src/assets/css/css.css",
+              //"src/assets/css/css-1.css",
+              //"src/assets/css/icons.min.css"
             ],
             "scripts": []
           },
@@ -66,7 +71,10 @@
               "browserTarget": "CarManagementClient:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "src/proxy.conf.js"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -89,7 +97,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "karmaConfig": "karma.conf.js"
           }
         }
       }
