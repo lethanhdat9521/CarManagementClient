@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { ModalService } from './services/modal.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor(http: HttpClient) {
+  constructor(http: HttpClient, public modalService: ModalService) {
     
   }
 

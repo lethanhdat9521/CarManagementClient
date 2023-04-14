@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalService } from '../../services/modal.service';
 
 @Component({
   selector: 'app-success-modal',
@@ -10,14 +11,11 @@ export class SuccessModalComponent {
   show: boolean = true;
   ngOninit() {
   }
-  constructor() {
-    this.content = "Very null";
+  constructor(private modalService: ModalService) {
+    this.content = modalService.content;
   }
-  hide(){
-    this.show = false;
-    this.content += this.content
+  hide() {
+    this.modalService.showPopup = false;
   }
-  setContent(content: string) {
-    this.content = content;
-  }
+  
 }

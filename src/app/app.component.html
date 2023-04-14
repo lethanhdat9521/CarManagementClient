@@ -1,1 +1,4 @@
+<app-fail-modal *ngIf="modalService.showPopup && modalService.type == 0"></app-fail-modal>
+<app-loading-modal *ngIf="modalService.showPopup && modalService.type == 2"></app-loading-modal>
+<app-success-modal *ngIf="modalService.showPopup && modalService.type == 1"></app-success-modal>
 <router-outlet></router-outlet>

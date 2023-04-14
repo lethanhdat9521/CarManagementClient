@@ -1,0 +1,71 @@
+@import "/src/assets/css/app.min.css";
+@import "/src/assets/css/bootstrap.min.css";
+@import "/src/assets/css/css-1.css";
+@import "/src/assets/css/css.css";
+@import "/src/assets/css/icons.min.css";
+
+.outside {
+  position: fixed;
+  background-color: rgba(255,255,255,0.5);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 100;
+}
+
+#myModal {
+  background-color: rgba(211,211,211,0.8);
+  height: 30%;
+  width: 30%;
+  margin: auto;
+  border-radius: 10px;
+  padding: 0.5%;
+}
+
+  #myModal #myModal--Noti {
+    display: inline-flex;
+    border-bottom: black;
+    border-bottom-style: solid;
+    width: 100%;
+    /*    background-color:red;*/
+  }
+
+#myModal--Noti p {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+#myModal--logo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5%;
+  /*  margin-bottom:10%;*/
+  /*  height: 100%;*/
+  font-size: 200%;
+  /*  position: relative;*/
+  /*  top: 20%;*/
+  text-align: center;
+  /*  background-color:blue;*/
+}
+
+#myModal--content {
+  /*  display: flex;*/
+  justify-content: center;
+  /*  flex-direction: column;*/
+  font-size: 100%;
+  font-weight: bold;
+  text-align: center;
+  margin-top:1vh;
+}
+
+.spinner-border {
+  height: 5vw;
+  width: 5vw;
+}
+
+

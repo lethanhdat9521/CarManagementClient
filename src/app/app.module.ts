@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,6 +11,10 @@ import { RouterOutlet } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { TopNavComponent } from './components/top-nav/top-nav.component';
 import { LeftNavComponent } from './components/left-nav/left-nav.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from './inceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,12 +24,19 @@ import { LeftNavComponent } from './components/left-nav/left-nav.component';
     SuccessModalComponent,
     AdminIndexComponent,
     TopNavComponent,
-    LeftNavComponent
+    LeftNavComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, RouterOutlet, AppRoutingModule
+    BrowserModule, HttpClientModule, RouterOutlet, AppRoutingModule, ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
