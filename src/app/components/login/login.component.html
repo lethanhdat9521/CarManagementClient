@@ -17,10 +17,10 @@
                                 <form [formGroup]="loginForm" action="mt-3" class="p-2">
                                     <div class="form-group">
                                         <label for="emailaddress">Email address</label>
-                                        <input class="form-control" type="text" id="emailaddress" required="" placeholder="john@deo.com" formControlName="account">
+                                        <input class="form-control" type="text" id="emailaddress" required="" placeholder="Email/Phone number" formControlName="account" [ngModel]="loginName">
                                     </div>
                                     <div class="form-group">
-                                        <a href="page-recoverpw.html" class="text-muted float-right">Forgot your password?</a>
+                                        <!--<a href="page-recoverpw.html" class="text-muted float-right">Forgot your password?</a>-->
                                         <label for="password">Password</label>
                                         <input class="form-control" type="password" required="" id="password" placeholder="Enter your password" formControlName="password">
                                     </div>

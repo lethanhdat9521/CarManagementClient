@@ -8,10 +8,11 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
 import { FailModalComponent } from './components/fail-modal/fail-modal.component';
+import { MyGuard } from './guard/myGuard';
 
 const routes: Routes = [
   {
-    path: "test", component: AdminIndexComponent
+    path: "test", component: AdminIndexComponent, canActivate: [MyGuard], data:{role:'Alo'}
   },
   {
     path: "login", component: LoginComponent
