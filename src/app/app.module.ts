@@ -13,7 +13,7 @@ import { TopNavComponent } from './components/top-nav/top-nav.component';
 import { LeftNavComponent } from './components/left-nav/left-nav.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './inceptor/auth.interceptor';
 import { RecaptchaV3Module, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
 import { environment } from '../environments/environment.development';
