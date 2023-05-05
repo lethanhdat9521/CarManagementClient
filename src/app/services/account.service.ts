@@ -12,9 +12,13 @@ export class AccountService {
   login(data: any) {
     let url = environment.baseURL + 'Account/Login';
     //this.http.post()
+    return this.http.post(url, data, { headers: { "Content-Type": 'application/json' } });
+  }
+  signUp(data: any) {
+
+    let url = environment.baseURL + 'Account/Create'
     return this.http.post(url, data);
   }
-
   isAccessTokenExpired() {
     if (localStorage.getItem("AccessToken") == null) {
       return true;
@@ -46,4 +50,5 @@ export class AccountService {
     }
     return false;
   }
+
 }
