@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './inceptor/auth.interceptor';
+import { CarListComponent } from './components/car-list/car-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthInterceptor } from './inceptor/auth.interceptor';
     TopNavComponent,
     LeftNavComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CarListComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterOutlet, AppRoutingModule, ReactiveFormsModule
