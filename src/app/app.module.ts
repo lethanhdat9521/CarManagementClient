@@ -18,6 +18,7 @@ import { AuthInterceptor } from './inceptor/auth.interceptor';
 import { CarListComponent } from './components/car-list/car-list.component';
 import { RecaptchaV3Module, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
 import { environment } from '../environments/environment.development';
+import { WarningModalComponent } from './components/warning-modal/warning-modal.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { environment } from '../environments/environment.development';
     LeftNavComponent,
     LoginComponent,
     SignupComponent,
-    CarListComponent
+    CarListComponent,
+    WarningModalComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterOutlet, AppRoutingModule, ReactiveFormsModule
