@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { TokenResponse } from '../models/TokenResponse';
@@ -50,5 +50,16 @@ export class AccountService {
     }
     return false;
   }
-
+  isPhoneDuplicated(data: string) {
+    let url = environment.baseURL + 'Account/CheckingPhoneDuplicate'
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("phone", data);
+    return this.http.get(url, { params: queryParams });
+  }
+  isEmailDuplicated(data: string) {
+    let url = environment.baseURL + 'Account/CheckingEmailDuplicate'
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("email", data);
+    return this.http.get(url, { params: queryParams });
+  }
 }

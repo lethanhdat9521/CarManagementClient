@@ -68,7 +68,6 @@ export class LoginComponent {
       })
     });
     
-    //this.failModal.setContent("hello");
-    //this.failModal.unhide();
+
   }
 }
