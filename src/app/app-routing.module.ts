@@ -9,16 +9,18 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
 import { FailModalComponent } from './components/fail-modal/fail-modal.component';
 import { CarListComponent } from './components/car-list/car-list.component';
+import { MyGuard } from './guard/myGuard';
+
 
 const routes: Routes = [
   {
-    path: "test", component: AdminIndexComponent
+    path: "test", component: AdminIndexComponent, canActivate: [MyGuard], data:{role:'Alo'}
   },
   {
     path: "login", component: LoginComponent
   },
   {
-    path: "Signup", component: SignupComponent
+    path: "signup", component: SignupComponent
   },
   {
     path: "modal", component: LoadingModalComponent
