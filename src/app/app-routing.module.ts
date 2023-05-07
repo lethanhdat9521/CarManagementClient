@@ -8,7 +8,9 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoadingModalComponent } from './components/loading-modal/loading-modal.component';
 import { FailModalComponent } from './components/fail-modal/fail-modal.component';
+import { CarListComponent } from './components/car-list/car-list.component';
 import { MyGuard } from './guard/myGuard';
+
 
 const routes: Routes = [
   {
@@ -22,7 +24,11 @@ const routes: Routes = [
   },
   {
     path: "modal", component: LoadingModalComponent
+  },
+  {
+    path: "carlist", component: CarListComponent
   }
+
 ]
 
 @NgModule({

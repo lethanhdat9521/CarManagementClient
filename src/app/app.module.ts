@@ -15,8 +15,10 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './inceptor/auth.interceptor';
+import { CarListComponent } from './components/car-list/car-list.component';
 import { RecaptchaV3Module, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
 import { environment } from '../environments/environment.development';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { environment } from '../environments/environment.development';
     TopNavComponent,
     LeftNavComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CarListComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterOutlet, AppRoutingModule, ReactiveFormsModule
