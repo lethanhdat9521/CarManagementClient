@@ -14,30 +14,34 @@
                             <form [formGroup]="signupForm" action="mt-3" class="p-2">
                                 <div class="form-group">
                                     <label for="username">FullName</label>
-                                    <input class="form-control" type="text" id="username" placeholder="Le Thanh Dat" formControlName="fullName">
+                                    <input class="form-control" type="text" id="username" placeholder="Your name right here!" formControlName="fullName">
                                     <span *ngIf=" getFormControl('fullName').hasError('required') && (getFormControl('fullName').touched ||submitted) ">Please input your name!</span>
 
                                 </div>
                                 <div class="form-group">
                                     <label for="emailaddress">Email address</label>
-                                    <input class="form-control" type="email" id="emailaddress" required="" placeholder="john@deo.com" formControlName="email">
+                                    <input class="form-control" type="email" id="emailaddress" required="" placeholder="example@gmail.com" formControlName="email" (input)="handleEmail($event)">
                                     <span *ngIf=" getFormControl('email').hasError('required') && (getFormControl('email').touched ||submitted) ">Please input your email!</span>
                                     <span *ngIf=" getFormControl('email').hasError('email') && (getFormControl('email').touched ||submitted) ">Please input right email format!</span>
+                                    <span *ngIf="isEmailDuplicated">Email already exist in the system!</span>
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">PhoneNumber</label>
-                                    <input class="form-control" type="text" required="" id="phone" placeholder="0905675799" formControlName="phone">
+                                    <label for="password">Phone Number</label>
+                                    <input class="form-control" type="text" required="" id="phone" placeholder="Your phone number here!" formControlName="phone" (input)="handlePhone($event)">
                                     <span *ngIf=" getFormControl('phone').hasError('pattern') && (getFormControl('phone').touched ||submitted) ">Please input right phone format!</span>
                                     <span *ngIf=" getFormControl('phone').hasError('required') && (getFormControl('phone').touched ||submitted) ">Please input your phone number!</span>
+                                    <span *ngIf="isPhoneDuplicated">Phone number already exist in the system!</span>
 
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <input class="form-control" type="password" required="" id="password" placeholder="Enter your password" formControlName="password">
+                                    <span *ngIf=" getFormControl('password').hasError('minLength') && (getFormControl('password').touched ||submitted) ">Please input your phone number!</span>
+
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">RePassword</label>
+                                    <label for="password">Confirm Password</label>
                                     <input class="form-control" type="password" required="" id="Repassword" placeholder="Enter your password" formControlName="confirmPassword">
                                     <span *ngIf="!passwordMatch() && getFormControl('confirmPassword').touched">Password not match</span>
                                 </div>
@@ -47,7 +51,7 @@
                                 </div>
                                 
                                 <div class="mb-3 text-center">
-                                    <button class="btn btn-primary btn-block" (click)="test()" type="submit"> Sign Up Free </button>
+                                    <button class="btn btn-primary btn-block" (click)="createAccount()" type="submit"> Sign Up </button>
                                 </div>
                             </form>
                         </div>
@@ -57,7 +61,7 @@
 
                     <div class="row mt-4">
                         <div class="col-sm-12 text-center">
-                            <p class="text-muted mb-0">Already have an account? <a href="pages-login.html" class="text-dark ml-1"><b>Sign In</b></a></p>
+                            <p class="text-muted mb-0">Already have an account? <a href="/login" class="text-dark ml-1"><b>Sign In</b></a></p>
                         </div>
                     </div>
 
