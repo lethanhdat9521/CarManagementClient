@@ -1,7 +1,8 @@
 enum modalType {
   Fail,
   Success,
-  Loading
+  Loading,
+  Warning
 }
 
 export {

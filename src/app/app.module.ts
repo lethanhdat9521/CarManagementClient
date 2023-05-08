@@ -19,6 +19,9 @@ import { CarListComponent } from './components/car-list/car-list.component';
 import { environment } from '../environments/environment.development';
 import { ProfileComponent } from './components/profile/profile.component';
 import { EditPasswordComponent } from './components/edit-password/edit-password.component';
+import { WarningModalComponent } from './components/warning-modal/warning-modal.component';
+import { CarTableComponent } from './components/car-table/car-table.component';
+import { CarCreateComponent } from './components/car-create/car-create.component';
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { EditPasswordComponent } from './components/edit-password/edit-password.
     SignupComponent,
     CarListComponent,
     ProfileComponent,
-    EditPasswordComponent
+    EditPasswordComponent,
+    WarningModalComponent,
+    CarTableComponent,
+    CarCreateComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterOutlet, AppRoutingModule, ReactiveFormsModule
