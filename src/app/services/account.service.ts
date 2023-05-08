@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
+import { AuthInterceptor } from '../inceptor/auth.interceptor';
 import { TokenResponse } from '../models/TokenResponse';
 
 @Injectable({
@@ -24,11 +25,9 @@ export class AccountService {
       return true;
     };
     var accesstoken: TokenResponse = JSON.parse(localStorage.getItem("AccessToken")!);
-    let expi = new Date(accesstoken.expiresAt);
+    let expi = new Date(accesstoken.expiredAt);
     // let t = new Date("1900-03-25")
     // console.log(t.toLocaleDateString())
-    console.log("Acc ", expi)
-    console.log("Date ", new Date())
     if (expi > new Date()) {
       return false;
     }
@@ -61,5 +60,32 @@ export class AccountService {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("email", data);
     return this.http.get(url, { params: queryParams });
+  }
+  getAccountInfo() {
+    let url = environment.baseURL + 'Account/GetInfoById'
+    return this.http.get(url);
+  }
+  updateInfo(data: any) {
+    let url = environment.baseURL + 'Account/UpdateInfo';
+    //this.http.post()
+    return this.http.post(url, data, { headers: { "Content-Type": 'application/json' } });
+  }
+  getAdminStats() {
+    let url = environment.baseURL + 'Account/GetAdminStats';
+    //this.http.post()
+    return this.http.get(url);
+  }
+  getAdminAccounts() {
+    let url = environment.baseURL + 'Account/GetAdminAccounts';
+    //this.http.post()
+    return this.http.get(url);
+  }
+  updatePassword(data: any) {
+    let url = environment.baseURL + 'Account/UpdatePassword';
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("oldPass", data.oldPassword);
+    queryParams = queryParams.append("newPass", data.newPassword);
+    console.log("Hello", data.oldPassword);
+    return this.http.post(url + "?oldPass=" + data.oldPassword+"&newPass="+data.newPassword, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
   }
 }

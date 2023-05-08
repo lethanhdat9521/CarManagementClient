@@ -1,35 +1,15 @@
-#topNav{
-    background-color:#f5f5f5;
-    height:7vh;
-    display:flex;
-}
+@import "/src/assets/css/app.min.css";
+@import "/src/assets/css/bootstrap.min.css";
+@import "/src/assets/css/css-1.css";
+@import "/src/assets/css/css.css";
+@import "/src/assets/css/icons.min.css";
 
-.topNav--Icon{
-    background-color:antiquewhite;
-/*    position:absolute;?*/
-/*    width:10vw;*/
-    height:100%;
-    width:20%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    margin:0;
+
+.navbar-custom {
+  background-color: white;
+  width: 90vw;
+  margin-left:5vw;
+  margin-right:5vw;
+  margin-bottom:1vh;
+  margin-top:1vh;
 }
-.topNav--Icon i{
-    font-size:320%;
-}
-#topNav--Avatar {
-  background-color: aqua;
-  width: 30%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center
-}
-  #topNav--Avatar img {
-    background-color: aqua;
-    width: 5vh;
-    height: 5vh;
-    border-radius: 100%;
-    ;
-  }
