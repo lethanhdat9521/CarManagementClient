@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ReCaptchaV3Service } from 'ng-recaptcha';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-nav',
@@ -9,22 +8,23 @@ import { ReCaptchaV3Service } from 'ng-recaptcha';
 })
 export class TopNavComponent {
 
-  formD: NgForm = null!;
-  constructor(private reCaptchaV3Service: ReCaptchaV3Service) {
+  public user: any;
+
+
+  constructor(private router: Router) {
 
   }
 
-  public send(): void {
-    if (this.formD.invalid) {
-      for (const control of Object.keys(this.formD.controls)) {
-        this.formD.controls[control].markAsTouched();
-      }
-      return;
+  ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem("UserInfor")!);
+    console.log("test");
+    if (this.user == null) {
+      this.user.fullname = "123";
     }
-
-    this.reCaptchaV3Service.execute('importantAction')
-      .subscribe((token: string) => {
-        console.debug(`Token [${token}] generated`);
-      });
+  }
+  logout() {
+    localStorage.removeItem("UserInfor");
+    localStorage.removeItem("AccessToken");
+    this.router.navigate(["login"]);
   }
 }

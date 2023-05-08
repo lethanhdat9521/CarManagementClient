@@ -89,11 +89,11 @@ export class SignupComponent {
     }
     // @ts-ignore
     this.fileUpload = fileList.item(0)!;
-    let reader = new FileReader();
-    reader.readAsDataURL(this.fileUpload);
-    reader.onload = function () {
-      fileString = reader.result?.toString()!;
-    }
+    //let reader = new FileReader();
+    //reader.readAsDataURL(this.fileUpload);
+    //reader.onload = function () {
+    //  fileString = reader.result?.toString()!;
+    //}
   }
   getFormControl(name: string) {
     return this.signupForm.controls[name];

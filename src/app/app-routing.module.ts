@@ -10,13 +10,15 @@ import { LoadingModalComponent } from './components/loading-modal/loading-modal.
 import { FailModalComponent } from './components/fail-modal/fail-modal.component';
 import { CarListComponent } from './components/car-list/car-list.component';
 import { MyGuard } from './guard/myGuard';
+import { ProfileComponent } from './components/profile/profile.component';
+import { EditPasswordComponent } from './components/edit-password/edit-password.component';
 import { CarTableComponent } from './components/car-table/car-table.component';
 import { CarCreateComponent } from './components/car-create/car-create.component';
 
 
 const routes: Routes = [
   {
-    path: "test", component: AdminIndexComponent, canActivate: [MyGuard], data:{role:'Alo'}
+    path: "adminIndex", component: AdminIndexComponent, canActivate: [MyGuard], data:{role:'Admin'}
   },
   {
     path: "login", component: LoginComponent
@@ -31,7 +33,10 @@ const routes: Routes = [
     path: "carlist", component: CarListComponent
   },
   {
-    path: "cartable", component: CarTableComponent
+    path: "profile", component: ProfileComponent, canActivate: [MyGuard], data: { role: 'Admin' }
+  },
+  {
+    path: "editPassword", component: EditPasswordComponent, canActivate: [MyGuard], data: { role: 'Admin' }
   },
   {
     path: "carcreate", component: CarCreateComponent
