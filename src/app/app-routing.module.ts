@@ -37,6 +37,9 @@ const routes: Routes = [
   },
   {
     path: "editPassword", component: EditPasswordComponent, canActivate: [MyGuard], data: { role: 'Admin' }
+  },
+  {
+    path: "carcreate", component: CarCreateComponent
   }
 ]
 
