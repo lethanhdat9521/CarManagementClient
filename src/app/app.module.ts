@@ -37,7 +37,7 @@ import { CarCreateComponent } from './components/car-create/car-create.component
     SignupComponent,
     CarListComponent,
     ProfileComponent,
-    EditPasswordComponent
+    EditPasswordComponent,
     WarningModalComponent,
     CarTableComponent,
     CarCreateComponent

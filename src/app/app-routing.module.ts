@@ -41,7 +41,6 @@ const routes: Routes = [
   {
     path: "carcreate", component: CarCreateComponent
   }
-
 ]
 
 @NgModule({
