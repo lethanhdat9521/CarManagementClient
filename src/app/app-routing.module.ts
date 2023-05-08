@@ -10,6 +10,8 @@ import { LoadingModalComponent } from './components/loading-modal/loading-modal.
 import { FailModalComponent } from './components/fail-modal/fail-modal.component';
 import { CarListComponent } from './components/car-list/car-list.component';
 import { MyGuard } from './guard/myGuard';
+import { CarTableComponent } from './components/car-table/car-table.component';
+import { CarCreateComponent } from './components/car-create/car-create.component';
 
 
 const routes: Routes = [
@@ -27,6 +29,12 @@ const routes: Routes = [
   },
   {
     path: "carlist", component: CarListComponent
+  },
+  {
+    path: "cartable", component: CarTableComponent
+  },
+  {
+    path: "carcreate", component: CarCreateComponent
   }
 
 ]
