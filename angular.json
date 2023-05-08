@@ -26,13 +26,10 @@
             ],
             "styles": [
               "src/styles.css"
-              //"src/assets/css/app.min.css",
-              //"src/assets/css/bootstrap.min.css",
-              //"src/assets/css/css.css",
-              //"src/assets/css/css-1.css",
-              //"src/assets/css/icons.min.css"
+
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {

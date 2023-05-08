@@ -12,6 +12,8 @@ import { CarListComponent } from './components/car-list/car-list.component';
 import { MyGuard } from './guard/myGuard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { EditPasswordComponent } from './components/edit-password/edit-password.component';
+import { CarTableComponent } from './components/car-table/car-table.component';
+import { CarCreateComponent } from './components/car-create/car-create.component';
 
 
 const routes: Routes = [
@@ -35,6 +37,9 @@ const routes: Routes = [
   },
   {
     path: "editPassword", component: EditPasswordComponent, canActivate: [MyGuard], data: { role: 'Admin' }
+  },
+  {
+    path: "carcreate", component: CarCreateComponent
   }
 
 ]
