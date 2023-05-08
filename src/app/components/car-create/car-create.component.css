@@ -1,0 +1,27 @@
+body {
+  width: 100vw;
+}
+
+.left-side-menu {
+  margin-top: 2vh;
+}
+
+.tab-pane {}
+
+
+
+
+.p-0 {
+  height: 100%;
+  margin-top: 10%;
+}
+
+.avatar-xxl {
+  height: 20vh;
+  width: 20vh;
+}
+
+.rounded-circle {
+  width: 20vh;
+  height: 20vh;
+}

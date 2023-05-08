@@ -19,6 +19,8 @@ import { CarListComponent } from './components/car-list/car-list.component';
 import { RecaptchaV3Module, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
 import { environment } from '../environments/environment.development';
 import { WarningModalComponent } from './components/warning-modal/warning-modal.component';
+import { CarTableComponent } from './components/car-table/car-table.component';
+import { CarCreateComponent } from './components/car-create/car-create.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { WarningModalComponent } from './components/warning-modal/warning-modal.
     LoginComponent,
     SignupComponent,
     CarListComponent,
-    WarningModalComponent
+    WarningModalComponent,
+    CarTableComponent,
+    CarCreateComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterOutlet, AppRoutingModule, ReactiveFormsModule
