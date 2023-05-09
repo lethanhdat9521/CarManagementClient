@@ -18,7 +18,7 @@ import { CarCreateComponent } from './components/car-create/car-create.component
 
 const routes: Routes = [
   {
-    path: "adminIndex", component: AdminIndexComponent, canActivate: [MyGuard], data:{role:'Admin'}
+    path: "adminIndex", component: AdminIndexComponent
   },
   {
     path: "login", component: LoginComponent

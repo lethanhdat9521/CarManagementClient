@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
@@ -30,4 +30,16 @@ export class CarServiceService {
   getAllBrands(): Observable<any[]>{
 return this.http.get<any[]>(environment.baseURL + "api/brand/list");
   }
+  getCarTotalPage() {
+      let url = environment.baseURL + 'api/Car/TotalPages';
+      return this.http.get(url);
+  }
+
+  getAllCarsListPagination(page:number) {
+    let url = environment.baseURL + 'api/Car/ListPagination';
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("page",page );
+    return this.http.get(url, { params: queryParams });
+  }
+
 }
