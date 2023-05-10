@@ -17,7 +17,7 @@
     <!-- Begin page -->
     <div id="wrapper">
       <!-- Topbar Start -->
-      
+
       <!-- end Topbar -->
       <!-- ========== Left Sidebar Start ========== -->
       <div class="left-side-menu">
@@ -109,6 +109,7 @@
                         <th>Price</th>
                         <th>Image</th>
                         <th>Brand</th>
+                        <th>Edit</th>
                       </tr>
                     </thead>
 
@@ -125,10 +126,14 @@
                             src="{{ car.image }}"
                             class="img-thumbnail"
                             alt="profile-image"
-                            style="width: auto; height: auto"
                           />
                         </td>
                         <td>{{ car.brandName }}</td>
+                        <td>
+                          <a [routerLink]="['/cartable', 'edit', car.id]"
+                            >View</a
+                          >
+                        </td>
                       </tr>
                     </tbody>
                   </table>

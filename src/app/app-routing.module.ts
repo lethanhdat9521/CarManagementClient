@@ -14,6 +14,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { EditPasswordComponent } from './components/edit-password/edit-password.component';
 import { CarTableComponent } from './components/car-table/car-table.component';
 import { CarCreateComponent } from './components/car-create/car-create.component';
+import { CarUpdateComponent } from './components/car-update/car-update.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,12 @@ const routes: Routes = [
   },
   {
     path: "carcreate", component: CarCreateComponent
+  },
+  {
+    path: "cartable/edit/:id", component: CarUpdateComponent
+  },
+  {
+    path: "cartable", component: CarTableComponent
   }
 ]
 
@@ -48,6 +55,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class AppRoutingModule {

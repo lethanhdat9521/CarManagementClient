@@ -42,7 +42,7 @@ export class CarCreateComponent implements OnInit{
   }
   validateForm() {
     this.createForm = this.formBuilder.group({
-      carname: ["", [Validators.required]],
+      name: ["", [Validators.required]],
       color: ["", [ Validators.required]],
       type: ["", [Validators.required]],
       available: ["", [Validators.required]],

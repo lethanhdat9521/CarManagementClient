@@ -22,6 +22,7 @@ import { EditPasswordComponent } from './components/edit-password/edit-password.
 import { WarningModalComponent } from './components/warning-modal/warning-modal.component';
 import { CarTableComponent } from './components/car-table/car-table.component';
 import { CarCreateComponent } from './components/car-create/car-create.component';
+import { CarUpdateComponent } from './components/car-update/car-update.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { CarCreateComponent } from './components/car-create/car-create.component
     EditPasswordComponent,
     WarningModalComponent,
     CarTableComponent,
-    CarCreateComponent
+    CarCreateComponent,
+    CarUpdateComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterOutlet, AppRoutingModule, ReactiveFormsModule

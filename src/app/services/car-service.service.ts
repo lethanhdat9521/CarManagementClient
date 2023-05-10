@@ -19,7 +19,7 @@ export class CarServiceService {
     return this.http.get<any>(environment.baseURL + 'api/car/' + id);
   }
   updateCar(id: number, editCar: any): Observable<any>{
-    return this.http.put<any>(environment.baseURL + 'api/car/' + id, editCar);
+    return this.http.put<any>(environment.baseURL + 'api/car?carId=' + id, editCar);
   }
   deleteCar(id: number): Observable<number>{
     return this.http.delete<number>(environment.baseURL + 'api/car/' + id);
