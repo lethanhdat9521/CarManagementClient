@@ -18,10 +18,10 @@ export class CarServiceService {
   getCar(id: number): Observable<any> {
     return this.http.get<any>(environment.baseURL + 'api/car/' + id);
   }
-  updateCar(id: number, editCar: any): Observable<any>{
+  updateCar(id: string, editCar: any): Observable<any>{
     return this.http.put<any>(environment.baseURL + 'api/car/' + id, editCar);
   }
-  deleteCar(id: number): Observable<number>{
+  deleteCar(id: string): Observable<number>{
     return this.http.delete<number>(environment.baseURL + 'api/car/' + id);
   }
   createReceipt(receiptInput: any): Observable<any>{

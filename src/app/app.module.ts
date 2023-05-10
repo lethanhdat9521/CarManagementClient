@@ -21,6 +21,7 @@ import { environment } from '../environments/environment.development';
 import { WarningModalComponent } from './components/warning-modal/warning-modal.component';
 import { CarTableComponent } from './components/car-table/car-table.component';
 import { CarCreateComponent } from './components/car-create/car-create.component';
+import { CarUpdateComponent } from './components/car-update/car-update.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CarCreateComponent } from './components/car-create/car-create.component
     CarListComponent,
     WarningModalComponent,
     CarTableComponent,
-    CarCreateComponent
+    CarCreateComponent,
+    CarUpdateComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterOutlet, AppRoutingModule, ReactiveFormsModule
