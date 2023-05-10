@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { interval, map } from 'rxjs';
 import { modalType } from '../../enums/modalType';
 import { AuthInterceptor } from '../../inceptor/auth.interceptor';
@@ -21,7 +22,7 @@ export class LoginComponent {
 
   interval: any;
   timeLeft: number = 5;
-  constructor(private accountService: AccountService, private formBuilder: FormBuilder, public modalService: ModalService) {
+  constructor(private accountService: AccountService, private formBuilder: FormBuilder, public modalService: ModalService, public router: Router) {
     this.createForm();
     this.loginName = localStorage.getItem("loginName")!;
   }
@@ -46,15 +47,24 @@ export class LoginComponent {
     this.modalService.type = modalType.Loading;
     console.log("alolo", this.loginForm.value["account"]);
     //console.log("Value", this.loginForm.value["account"]);
+    this.loginForm.controls["password"].setValue("12345678");
     this.accountService.login(this.loginForm.value).subscribe({
       next: (data => {
-        console.log(data);
         this.modalService.showPopup = false;
         //AuthInterceptor.accessToken = data.accessToken;
-        console.log("Hello", data);
-        console.log("Hello1", (<any>data).o.role);
-        sessionStorage.setItem("role", (<any>data).o.role);
+        localStorage.setItem("AccessToken", JSON.stringify((<any>data).o));
         localStorage.setItem("loginName", this.loginForm.value["account"]);
+        AuthInterceptor.accessToken = (<any>data).o.token;
+        this.accountService.getAccountInfo().subscribe({
+          next: (data => {
+            console.log("Success ", (<any>data));
+            localStorage.setItem("UserInfor", JSON.stringify(<any>data));
+            this.router.navigate(['profile']);
+          }),
+          error: (data => {
+            console.log("Nhu loz ", data);
+          })
+        })
       }),
       error: (data => {
         this.modalService.showPopup = true;
@@ -68,7 +78,6 @@ export class LoginComponent {
       })
     });
     
-    //this.failModal.setContent("hello");
-    //this.failModal.unhide();
+
   }
 }

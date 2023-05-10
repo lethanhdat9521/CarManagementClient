@@ -16,8 +16,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './inceptor/auth.interceptor';
 import { CarListComponent } from './components/car-list/car-list.component';
-import { RecaptchaV3Module, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
 import { environment } from '../environments/environment.development';
+import { ProfileComponent } from './components/profile/profile.component';
+import { EditPasswordComponent } from './components/edit-password/edit-password.component';
 import { WarningModalComponent } from './components/warning-modal/warning-modal.component';
 import { CarTableComponent } from './components/car-table/car-table.component';
 import { CarCreateComponent } from './components/car-create/car-create.component';
@@ -36,6 +37,8 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
     LoginComponent,
     SignupComponent,
     CarListComponent,
+    ProfileComponent,
+    EditPasswordComponent,
     WarningModalComponent,
     CarTableComponent,
     CarCreateComponent,

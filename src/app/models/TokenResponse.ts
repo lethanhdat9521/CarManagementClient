@@ -1,6 +1,6 @@
 interface TokenResponse {
   accessToken: string;
-  expiresAt: Date;
+  expiredAt: Date;
   name: string;
 }
 export {

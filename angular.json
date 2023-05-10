@@ -61,13 +61,13 @@
               ]
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "CarManagementClient:build:production"
+              "browserTarget": "CarManagementClient:build:development"
             },
             "development": {
               "browserTarget": "CarManagementClient:build:development"
