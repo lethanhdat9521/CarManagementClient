@@ -44,6 +44,9 @@ const routes: Routes = [
   },
   {
     path: "cartable/edit/:id", component: CarUpdateComponent
+  },
+  {
+    path: "cartable", component: CarTableComponent
   }
 ]
 

@@ -11,6 +11,8 @@ import { ModalService } from 'src/app/services/modal.service';
   styleUrls: ['./car-update.component.css']
 })
 export class CarUpdateComponent {
+  public carBrand: any;
+  public carBrandId: any;
   public idNumber: number = 0;
   public car: any;
   public brandList: any[] = [];
@@ -40,12 +42,21 @@ export class CarUpdateComponent {
           this.carService.getCar(this.idNumber).subscribe({
             next: (response) => {
               console.log(response);
-              this.updateForm.setValue(response);
-              console.log(this.updateForm);
-        this.modalService.showPopup = true;
-        this.modalService.content = "Success"
-        this.modalService.type = modalType.Success
+              this.updateForm.setValue({
+                id: response.id,
+                name: response.name,
+                color: response.color,
+                type: response.type,
+                available: response.available,
+                price: response.price,
+                image: response.image,
+                brandId: ""
+
+              });
+              this.carBrand = response.brandName;
+              console.log("carbrand" ,this.carBrand);
             }
+
           });
         }
       }
@@ -56,6 +67,9 @@ export class CarUpdateComponent {
       next: (brandResponse) =>
       {
         this.brandList = brandResponse;
+        this.modalService.showPopup = true;
+        this.modalService.content = "Success"
+        this.modalService.type = modalType.Success
         console.log(brandResponse);
       },
       error: (response) =>
@@ -73,12 +87,18 @@ export class CarUpdateComponent {
       available: ["", [Validators.required]],
       price: ["", [Validators.required]],
       image: [""],
-      // brandId:[""],
+      brandId: ""
     })
+    // this.updateForm.setValue({
+    //   brandId: ""
+    // })
   }
   get id(): FormControl {
     return this.updateForm.get("id") as FormControl;
   }
+  // get brandId(): FormControl {
+  //   return this.updateForm.get("brandId") as FormControl;
+  // }
 
   getFormControl(name: string) {
     return this.updateForm.controls[name];

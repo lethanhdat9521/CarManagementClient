@@ -193,6 +193,12 @@
                         id="213"
                         placeholder=""
                       />
+                      <img
+                        src=""
+                        class="img-thumbnail"
+                        alt="profile-image"
+                        formControlName="image"
+                      />
                     </div>
                     <div class="form-group">
                       <label for="type">Brand</label>
@@ -200,9 +206,9 @@
                         class="custom-select mt-3"
                         (change)="chooseBrand($event)"
                       >
-                        <option selected>Please choose brand!</option>
                         <option
                           *ngFor="let brand of brandList"
+                          [selected]="brand.name == carBrand"
                           [value]="brand.id"
                         >
                           {{ brand.name }}
