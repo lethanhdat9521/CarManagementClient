@@ -19,7 +19,26 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
 
 const routes: Routes = [
   {
-    path: "adminIndex", component: AdminIndexComponent
+    path: "admin",
+    children: [
+      {
+        path: "", component: AdminIndexComponent
+      },
+      {
+        path: "carManagement",
+        children: [
+          {
+            path: "", component: CarTableComponent
+          },
+          {
+            path: "addcar", component: CarCreateComponent
+          },
+          {
+            path: "UpdateCar/:id", component: CarUpdateComponent
+          }
+        ]
+      }
+    ]
   },
   {
     path: "login", component: LoginComponent
@@ -31,7 +50,7 @@ const routes: Routes = [
     path: "modal", component: LoadingModalComponent
   },
   {
-    path: "carlist", component: CarListComponent
+    path: "carlist", component: CarTableComponent
   },
   {
     path: "profile", component: ProfileComponent, canActivate: [MyGuard], data: { role: 'Admin' }
@@ -44,9 +63,6 @@ const routes: Routes = [
   },
   {
     path: "cartable/edit/:id", component: CarUpdateComponent
-  },
-  {
-    path: "cartable", component: CarTableComponent
   }
 ]
 
