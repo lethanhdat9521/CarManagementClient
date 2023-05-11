@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavbarService } from '../../services/navbar.service';
 
 @Component({
   selector: 'app-page-not-found',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class PageNotFoundComponent {
 
+  constructor(public navBar: NavbarService) {
+    this.navBar.closeNav();
+  }
+
+  ngOndestroy() {
+    this.navBar.openNav();
+    this.navBar.setEvent("hello");
+  }
 }

@@ -3,3 +3,14 @@
 @import "/src/assets/css/css-1.css";
 @import "/src/assets/css/css.css";
 @import "/src/assets/css/icons.min.css";
+
+
+#sidebar-menu{
+    position:absolute;
+    z-index:5;
+    margin-left:5vw;
+}
+
+a:hover{
+    background-color:red;
+}

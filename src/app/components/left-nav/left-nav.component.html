@@ -1,0 +1,32 @@
+  <!--- Sidemenu -->
+<div id="sidebar-menu" *ngIf="navBarService.navBarShow">
+
+    <ul class="metismenu" id="side-menu">
+
+        <li class="menu-title">Navigation</li>
+
+        <li *ngIf="role=='Admin'">
+            <a href="/admin">
+                <i class="ti-home"></i>
+                <span> Admin Index </span>
+            </a>
+        </li>
+
+        <li *ngIf="role=='Admin'">
+            <a href="admin/carManagement/">
+                <i class="ti-home"></i>
+                <span> Car Management </span>
+            </a>
+        </li>
+
+        <li *ngIf="role=='Admin'">
+            <a href="admin/clientManagement/">
+                <i class="ti-home"></i>
+                <span> Client Management </span>
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+<!-- End Sidebar -->

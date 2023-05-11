@@ -1,70 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>
-      Tables Advanced | Simple - Responsive Bootstrap 4 Admin Dashboard
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta content="Responsive bootstrap 4 admin template" name="description" />
-    <meta content="Coderthemes" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets\images\favicon.ico" />
-  </head>
+
 
   <body>
     <!-- Begin page -->
     <div id="wrapper">
       <!-- Topbar Start -->
-
-      <!-- end Topbar -->
-      <!-- ========== Left Sidebar Start ========== -->
-      <div class="left-side-menu">
-        <div class="user-box">
-          <div class="float-left">
-            <img
-              src="assets\images\users\avatar-1.jpg"
-              alt=""
-              class="avatar-md rounded-circle"
-            />
-          </div>
-          <div class="user-info">
-            <a href="#">Stanley Jones</a>
-            <p class="text-muted m-0">Administrator</p>
-          </div>
-        </div>
-
-        <!--- Sidemenu -->
-        <div id="sidebar-menu">
-          <ul class="metismenu" id="side-menu">
-            <li class="menu-title">Navigation</li>
-
-            <li>
-              <a href="index.html">
-                <i class="ti-home"></i>
-                <span> Dashboard </span>
-              </a>
-            </li>
-
-            <li>
-              <a href="javascript: void(0);">
-                <i class="ti-menu-alt"></i>
-                <span> Tables </span>
-                <span class="menu-arrow"></span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- End Sidebar -->
-
-        <div class="clearfix"></div>
-      </div>
-      <!-- Left Sidebar End -->
-
-      <!-- ============================================================== -->
-      <!-- Start Page Content here -->
-      <!-- ============================================================== -->
 
       <div class="content-page">
         <div class="content">
@@ -74,7 +13,7 @@
             <div class="row">
               <div class="col-12">
                 <div>
-                  <h4 class="header-title mb-3">Data Tables</h4>
+                  <h4 class="header-title mb-3">Car List</h4>
                 </div>
               </div>
             </div>
@@ -109,7 +48,7 @@
                         <th>Price</th>
                         <th>Image</th>
                         <th>Brand</th>
-                        <th>Edit</th>
+                        <th></th>
                       </tr>
                     </thead>
 
@@ -137,8 +76,8 @@
                         </td>
                         <td>{{ car.brandName }}</td>
                         <td>
-                          <a [routerLink]="['/admin', 'UpdateCar', car.id]"
-                            >View</a
+                          <a [routerLink]="['/cartable', 'edit', car.id]"
+                            >Edit</a
                           >
                         </td>
                       </tr>
@@ -152,16 +91,7 @@
           </div>
           <!-- end container-fluid -->
 
-          <!-- Footer Start -->
-          <!-- <footer class="footer">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-12">
-                  2017 - 2020 &copy; Simple theme by <a href="">Coderthemes</a>
-                </div>
-              </div>
-            </div>
-          </footer> -->
+ 
           <!-- end Footer -->
         </div>
         <!-- end content -->
@@ -172,4 +102,3 @@
 
     <!-- Right Sidebar -->
   </body>
-</html>
