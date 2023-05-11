@@ -23,6 +23,7 @@ import { WarningModalComponent } from './components/warning-modal/warning-modal.
 import { CarTableComponent } from './components/car-table/car-table.component';
 import { CarCreateComponent } from './components/car-create/car-create.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
+import { ClientTableComponent } from './components/client-table/client-table.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
     WarningModalComponent,
     CarTableComponent,
     CarCreateComponent,
-    CarUpdateComponent
+    CarUpdateComponent,
+    ClientTableComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterOutlet, AppRoutingModule, ReactiveFormsModule

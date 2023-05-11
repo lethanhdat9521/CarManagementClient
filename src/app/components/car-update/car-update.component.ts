@@ -11,6 +11,7 @@ import { ModalService } from 'src/app/services/modal.service';
   styleUrls: ['./car-update.component.css']
 })
 export class CarUpdateComponent {
+  public carImg: string ="";
   public carBrand: any;
   public carBrandId: any;
   public idNumber: number = 0;
@@ -53,6 +54,7 @@ export class CarUpdateComponent {
                 brandId: ""
 
               });
+              this.carImg = response.image;
               this.carBrand = response.brandName;
               console.log("carbrand" ,this.carBrand);
             }
