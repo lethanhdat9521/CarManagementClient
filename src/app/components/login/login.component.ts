@@ -6,7 +6,9 @@ import { modalType } from '../../enums/modalType';
 import { AuthInterceptor } from '../../inceptor/auth.interceptor';
 import { AccountService } from '../../services/account.service';
 import { ModalService } from '../../services/modal.service';
+import { NavbarService } from '../../services/navbar.service';
 import { FailModalComponent } from '../fail-modal/fail-modal.component';
+import { TopNavComponent } from '../top-nav/top-nav.component';
 
 @Component({
   selector: 'app-login',
@@ -22,9 +24,11 @@ export class LoginComponent {
 
   interval: any;
   timeLeft: number = 5;
-  constructor(private accountService: AccountService, private formBuilder: FormBuilder, public modalService: ModalService, public router: Router) {
+  constructor(private accountService: AccountService, private formBuilder: FormBuilder, public modalService: ModalService, public router: Router, public navBar: NavbarService) {
+    console.log("Login Constructor", this.navBar.navBarShow);
     this.createForm();
     this.loginName = localStorage.getItem("loginName")!;
+    this.navBar.closeNav();
   }
   
   createForm() {
@@ -35,11 +39,7 @@ export class LoginComponent {
   }
 
   ngOnInit() {
-    console.log("Oninit");
-    
-  }
-  ngOnChanges() {
-    console.log("Onchanges")
+    //this.topnavbar.hideNavbar();
   }
   login() {
     this.modalService.showPopup = true;
@@ -55,14 +55,17 @@ export class LoginComponent {
         AuthInterceptor.accessToken = (<any>data).o.token;
         this.accountService.getAccountInfo().subscribe({
           next: (data1 => {
-            console.log("Success ", (<any>data1));
+            console.log("adwdad ", (<any>data1));
             localStorage.setItem("UserInfor", JSON.stringify(<any>data1));
             let role = (<any>JSON.parse(localStorage.getItem("AccessToken")!).role);
+            this.navBar.setEvent("hello");
+            this.navBar.openNav();
             if (role == "Admin") {
               this.router.navigate(['admin']);
             } else {
-              this.router.navigate(["carlist"]);
+              this.router.navigate(["carshow"]);
             }
+
             
           }),
           error: (data => {

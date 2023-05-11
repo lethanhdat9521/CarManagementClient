@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavbarService } from '../../services/navbar.service';
 
 @Component({
   selector: 'app-left-nav',
@@ -6,12 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./left-nav.component.css']
 })
 export class LeftNavComponent {
+  public role: string = "";
   public user: any;
+  constructor(public navBarService: NavbarService) {
+
+  }
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem("UserInfor")!);
-    console.log("test");
-    if (this.user == null) {
-      this.user.fullname = "123";
-    }
+    this.setRole();
+    this.navBarService.getEvent().subscribe(event => {
+      if (event == "hello") {
+        this.setRole();
+      }
+    })
+  }
+
+  setRole() {
+    this.role = (<any>JSON.parse(localStorage.getItem("AccessToken")!).role);
+
   }
 }

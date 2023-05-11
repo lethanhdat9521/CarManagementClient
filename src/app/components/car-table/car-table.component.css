@@ -6,3 +6,15 @@ body {
 .left-side-menu {
   margin-top: 2vh;
 }
+
+
+.img-thumbnail{
+    height:100px;
+}
+
+td {
+/*  text-align: center;*/
+  vertical-align: middle;
+  font-weight:bold;
+  text-transform:uppercase;
+}

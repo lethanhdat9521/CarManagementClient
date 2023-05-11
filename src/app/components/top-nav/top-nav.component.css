@@ -13,3 +13,7 @@
   margin-bottom:1vh;
   margin-top:1vh;
 }
+
+.logo-box:hover{
+    cursor:pointer;
+}

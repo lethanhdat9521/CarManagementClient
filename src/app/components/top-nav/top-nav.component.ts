@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavbarService } from '../../services/navbar.service';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-top-nav',
@@ -11,16 +13,22 @@ export class TopNavComponent {
   public user: any;
 
 
-  constructor(private router: Router) {
-
+  constructor(private router: Router, public navbarService: NavbarService) {
+    console.log("This is constructor of top nav");
   }
 
-  ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem("UserInfor")!);
-    console.log("test");
-    if (this.user == null) {
-      this.user.fullname = "123";
-    }
+  ngOnInit() { 
+    //interval(500).subscribe(() => {
+    //  this.user = JSON.parse(localStorage.getItem("UserInfor")!);
+    //  console.log("This is ngOnInit of top nav");
+
+    //});
+    this.navbarService.getEvent().subscribe(event => {
+      if (event == "hello") {
+        this.showNavbar();
+      }
+    })
+    this.showNavbar();
   }
   logout() {
     localStorage.removeItem("UserInfor");
@@ -35,5 +43,13 @@ export class TopNavComponent {
     } else {
       this.router.navigate(["carshow"]);
     }
+  }
+
+  showNavbar() {
+    this.user = JSON.parse(localStorage.getItem("UserInfor")!);
+    console.log("Show r");
+  }
+  hideNavbar() {
+    document.getElementById("blabla")!.style.display = "none";
   }
 }

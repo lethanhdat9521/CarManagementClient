@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { modalType } from '../../enums/modalType';
 import { AccountService } from '../../services/account.service';
 import { ModalService } from '../../services/modal.service';
+import { NavbarService } from '../../services/navbar.service';
 
 @Component({
   selector: 'app-signup',
@@ -19,8 +20,9 @@ export class SignupComponent {
   public type: modalType = this.modalService.type;
   fileUpload: File = null!;
 
-  constructor(private formBuilder: FormBuilder, private accountService: AccountService, public modalService: ModalService, private route: Router) {
+  constructor(private formBuilder: FormBuilder, private accountService: AccountService, public modalService: ModalService, private route: Router, public navBar: NavbarService) {
     this.createForm();
+    this.navBar.closeNav();
   }
   createForm() {
     this.signupForm = this.formBuilder.group({
