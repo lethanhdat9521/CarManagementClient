@@ -141,7 +141,7 @@
                       >
                     </div>
                     <div class="form-group">
-                      <label for="type">Available</label>
+                      <label for="availabe">Available</label>
                       <input
                         class="form-control"
                         type="checkbox"
@@ -154,8 +154,7 @@
                           getFormControl('available').hasError('required') &&
                           (getFormControl('available').touched || submitted)
                         "
-                        >Please input your phone number!</span
-                      >
+                      ></span>
                     </div>
                     <div class="form-group">
                       <label for="type">Price</label>
@@ -194,7 +193,7 @@
                         placeholder=""
                       />
                       <img
-                        src=""
+                        src="{{ carImg }}"
                         class="img-thumbnail"
                         alt="profile-image"
                         formControlName="image"

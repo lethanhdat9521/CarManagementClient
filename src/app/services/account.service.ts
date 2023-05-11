@@ -88,4 +88,9 @@ export class AccountService {
     console.log("Hello", data.oldPassword);
     return this.http.post(url + "?oldPass=" + data.oldPassword+"&newPass="+data.newPassword, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
   }
+  getClientAccounts() {
+    let url = environment.baseURL + 'Account/GetClientAccounts';
+    //this.http.post()
+    return this.http.get(url);
+  }
 }
