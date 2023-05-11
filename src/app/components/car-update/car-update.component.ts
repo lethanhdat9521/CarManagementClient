@@ -83,11 +83,11 @@ export class CarUpdateComponent {
   validateForm() {
     this.updateForm = this.formBuilder.group({
       id: [""],
-      name: ["", [Validators.required]],
-      color: ["", [ Validators.required]],
-      type: ["", [Validators.required]],
+      name: ["", [Validators.required, Validators.maxLength(50), Validators.minLength(2)]],
+      color: ["", [ Validators.required], Validators.maxLength(20), Validators.minLength(2)],
+      type: ["", [Validators.required, Validators.maxLength(20), Validators.minLength(2)]],
       available: ["", [Validators.required]],
-      price: ["", [Validators.required]],
+      price: ["", [Validators.required, Validators.min(1000), Validators.max(20000000)]],
       image: [""],
       brandId: ""
     })

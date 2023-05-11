@@ -122,8 +122,9 @@
                         <td *ngIf="account.role == '2'">Client</td>
                         <td>
                           <input
+                            disabled="true"
                             type="checkbox"
-                            checked="{{ account.isDeactivated }}"
+                            [checked]="account.isDeactivated"
                           />
                         </td>
                         <td>
@@ -137,9 +138,12 @@
                           />
                         </td>
                         <td>
-                          <a [routerLink]="['/cartable', 'edit', account.id]"
-                            >Deactivate</a
+                          <button
+                            class="btn btn-danger"
+                            (click)="changeStatus(account.id)"
                           >
+                            Change Status
+                          </button>
                         </td>
                       </tr>
                     </tbody>
