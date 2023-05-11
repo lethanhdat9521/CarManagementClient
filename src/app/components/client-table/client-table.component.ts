@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { modalType } from 'src/app/enums/modalType';
 import { AccountService } from 'src/app/services/account.service';
 import { ModalService } from 'src/app/services/modal.service';
@@ -15,7 +16,7 @@ export class ClientTableComponent {
   /**
    *
    */
-  constructor(private modalService: ModalService, private accountService: AccountService) {
+  constructor(private modalService: ModalService, private accountService: AccountService, private router: Router, private activatedRoute: ActivatedRoute) {
 
   }
   ngOnInit(): void {
@@ -37,5 +38,29 @@ export class ClientTableComponent {
         console.log(response);
       }
     })
+  }
+  changeStatus(id: number){
+    console.log(id);
+    this.accountService.manageAccount(id)
+
+    .subscribe({
+      next: (response) =>{
+        console.log("alo" + response);
+        this.accountService.getClientAccounts()
+    .subscribe({
+      next: (accounts) =>
+      {
+        this.accountList = <any>accounts;
+        console.log(this.accountList);
+      },
+      error: (response) =>
+      {
+        console.log(response);
+      }
+    })
+        //window.location.reload();
+      }
+    })
+    //this.router.navigate([this.router.url]);
   }
 }

@@ -58,8 +58,9 @@ const routes: Routes = [
     path: "carshow", component: CarListComponent
   },
   {
-    path: "**", component: PageNotFoundComponent
+    path: "**", component: ClientTableComponent
   }
+
 
 ]
 
@@ -67,7 +68,7 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
   ],
   exports: [
     RouterModule
