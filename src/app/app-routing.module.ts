@@ -15,11 +15,11 @@ import { EditPasswordComponent } from './components/edit-password/edit-password.
 import { CarTableComponent } from './components/car-table/car-table.component';
 import { CarCreateComponent } from './components/car-create/car-create.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
-
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
-    path: "admin",
+    path: "admin", canActivate: [MyGuard], data: { role: ['Admin'] },
     children: [
       {
         path: "", component: AdminIndexComponent
@@ -37,7 +37,7 @@ const routes: Routes = [
             path: "UpdateCar/:id", component: CarUpdateComponent
           }
         ]
-      }
+      },
     ]
   },
   {
@@ -47,23 +47,18 @@ const routes: Routes = [
     path: "signup", component: SignupComponent
   },
   {
-    path: "modal", component: LoadingModalComponent
+    path: "profile", component: ProfileComponent, canActivate: [MyGuard], data: { role: ['Admin', 'Client'] }
   },
   {
-    path: "carlist", component: CarTableComponent
+    path: "editPassword", component: EditPasswordComponent, canActivate: [MyGuard], data: { role: ['Admin', 'Client'] }
   },
   {
-    path: "profile", component: ProfileComponent, canActivate: [MyGuard], data: { role: 'Admin' }
+    path: "carshow", component: CarListComponent
   },
   {
-    path: "editPassword", component: EditPasswordComponent, canActivate: [MyGuard], data: { role: 'Admin' }
-  },
-  {
-    path: "carcreate", component: CarCreateComponent
-  },
-  {
-    path: "cartable/edit/:id", component: CarUpdateComponent
+    path: "**", component: PageNotFoundComponent
   }
+
 ]
 
 @NgModule({

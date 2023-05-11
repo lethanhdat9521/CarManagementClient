@@ -9,16 +9,18 @@ export const MyGuard: CanActivateFn = (
 ) => {
   const authService = inject(AccountService);
   const router = inject(Router);
-  console.log("Role", route.routeConfig?.data?.['role']);
+  console.log("Role", route.routeConfig?.data?.['role'].includes("Admin"));
   let userInfor = localStorage.getItem("UserInfor")!;
   if (userInfor == null) {
     router.navigate(["login"]);
     return false;
   }
-  let role = (<any>JSON.parse(userInfor).role);
+  let role = (<any>JSON.parse(localStorage.getItem("AccessToken")!).role);
+  console.log("ROle ", role);
+  console.log("Role is true", (<string[]>route.routeConfig?.data?.['role']).includes(role));
   AuthInterceptor.accessToken = JSON.parse(<any>localStorage.getItem("AccessToken")!).token;
   console.log("Return", authService.isAccessTokenExpired());
-  if (authService.isAccessTokenExpired() == false) {
+  if (authService.isAccessTokenExpired() == false && (<string[]>route.routeConfig?.data?.['role']).includes(role)) {
     return true;
   } else {
     router.navigate(["login"]);
