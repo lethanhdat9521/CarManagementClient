@@ -15,6 +15,7 @@ import { EditPasswordComponent } from './components/edit-password/edit-password.
 import { CarTableComponent } from './components/car-table/car-table.component';
 import { CarCreateComponent } from './components/car-create/car-create.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
+import { ClientTableComponent } from './components/client-table/client-table.component';
 
 
 const routes: Routes = [
@@ -47,6 +48,9 @@ const routes: Routes = [
   },
   {
     path: "cartable", component: CarTableComponent
+  },
+  {
+    path: "clienttable", component: ClientTableComponent
   }
 ]
 
