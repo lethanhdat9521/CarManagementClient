@@ -58,8 +58,9 @@ const routes: Routes = [
     path: "carshow", component: CarListComponent
   },
   {
-    path: "**", component: PageNotFoundComponent
+    path: "**", component: ClientTableComponent
   }
+
 
 ]
 

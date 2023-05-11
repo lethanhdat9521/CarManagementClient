@@ -46,7 +46,19 @@ export class ClientTableComponent {
     .subscribe({
       next: (response) =>{
         console.log("alo" + response);
-        window.location.reload();
+        this.accountService.getClientAccounts()
+    .subscribe({
+      next: (accounts) =>
+      {
+        this.accountList = <any>accounts;
+        console.log(this.accountList);
+      },
+      error: (response) =>
+      {
+        console.log(response);
+      }
+    })
+        //window.location.reload();
       }
     })
     //this.router.navigate([this.router.url]);

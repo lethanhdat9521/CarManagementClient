@@ -1,8 +1,11 @@
-
 body {
   width: 100vw;
 }
 
 .left-side-menu {
   margin-top: 2vh;
+}
+
+.img-thumbnail {
+  width: 500px;
 }

@@ -11,9 +11,9 @@ export class CarServiceService {
   getAllCars(): Observable<any[]>{
     return this.http.get<any[]>(environment.baseURL + "api/car/list");
   }
-  addCar(addCarRequest: any): Observable<number> {
+  addCar(addCarRequest: any): Observable<any> {
     addCarRequest.id = '0';
-    return this.http.post<number>(environment.baseURL + 'api/car', addCarRequest);
+    return this.http.post<any>(environment.baseURL + 'api/car', addCarRequest);
   }
   getCar(id: number): Observable<any> {
     return this.http.get<any>(environment.baseURL + 'api/car/' + id);
