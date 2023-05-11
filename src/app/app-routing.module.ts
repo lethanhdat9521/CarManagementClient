@@ -17,6 +17,7 @@ import { CarCreateComponent } from './components/car-create/car-create.component
 import { CarUpdateComponent } from './components/car-update/car-update.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ClientTableComponent } from './components/client-table/client-table.component';
+import { ClientReceptsComponent } from './components/client-recepts/client-recepts.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,14 @@ const routes: Routes = [
           }
         ]
       },
+      {
+        path: "clientManagement",
+        children: [
+          {
+            path: "", component: ClientTableComponent
+          }
+        ]
+      }
     ]
   },
   {
@@ -55,12 +64,17 @@ const routes: Routes = [
     path: "editPassword", component: EditPasswordComponent, canActivate: [MyGuard], data: { role: ['Admin', 'Client'] }
   },
   {
-    path: "carshow", component: CarListComponent
+    path: "carshow", component: CarListComponent, canActivate: [MyGuard], data: { role: ['Client'] }
   },
   {
-    path: "**", component: ClientTableComponent
+    path: "getRecepts", component: ClientReceptsComponent
+  },
+  {
+    path: "PageNotFound", component: PageNotFoundComponent
+  },
+  {
+    path: "**", redirectTo:"/PageNotFound"
   }
-
 
 ]
 

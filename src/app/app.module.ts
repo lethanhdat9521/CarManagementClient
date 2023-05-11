@@ -25,6 +25,7 @@ import { CarCreateComponent } from './components/car-create/car-create.component
 import { CarUpdateComponent } from './components/car-update/car-update.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ClientTableComponent } from './components/client-table/client-table.component';
+import { ClientReceptsComponent } from './components/client-recepts/client-recepts.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { ClientTableComponent } from './components/client-table/client-table.com
     CarCreateComponent,
     CarUpdateComponent,
     PageNotFoundComponent,
-    ClientTableComponent
+    ClientTableComponent,
+    ClientReceptsComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, RouterOutlet, AppRoutingModule, ReactiveFormsModule

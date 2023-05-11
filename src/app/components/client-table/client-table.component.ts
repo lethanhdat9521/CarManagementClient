@@ -28,7 +28,7 @@ export class ClientTableComponent {
       next: (accounts) =>
       {
         this.accountList = <any>accounts;
-        this.modalService.showPopup = true;
+        this.modalService.showPopup = false;
         this.modalService.content = "Success"
         this.modalService.type = modalType.Success
         console.log(this.accountList);
