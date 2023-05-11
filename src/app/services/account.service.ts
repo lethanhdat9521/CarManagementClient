@@ -97,4 +97,9 @@ export class AccountService {
   manageAccount(id: number): Observable<any> {
     return this.http.delete<any>(environment.baseURL + 'account/deactivate?id=' + id);
   }
+
+  getReceptsOfClient() {
+    let url = environment.baseURL + 'api/Recepts/GetRecepts';
+    return this.http.get(url);
+  }
 }

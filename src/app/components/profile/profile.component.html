@@ -65,11 +65,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="fileField">Image</label>
-                                            <input type="file" id="fileField" name="fileToUp" (change)="handleFile($event)" class="form-control" id="213" placeholder="">
+                                            <input [accept]="['.png','.jpg']" type="file" id="fileField" name="fileToUp" (change)="handleFile($event)" class="form-control" id="213" placeholder="">
                                         </div>
 
                                         <div class="mb-3 text-center">
-                                            <button class="btn btn-primary btn-block" type="submit" (click)="update()"> Edit </button>
+                                            <button class="btn btn-primary btn-block" type="submit" [disabled]="updateForm.invalid" (click)="update()"> Edit </button>
                                         </div>
                                     </form>
                                 </div>

@@ -25,7 +25,12 @@
                 <span> Client Management </span>
             </a>
         </li>
-
+        <li *ngIf="role=='Client'">
+            <a href="carshow">
+                <i class="ti-home"></i>
+                <span> Dashboard </span>
+            </a>
+        </li>
     </ul>
 
 </div>

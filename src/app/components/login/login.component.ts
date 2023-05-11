@@ -39,7 +39,17 @@ export class LoginComponent {
   }
 
   ngOnInit() {
-    //this.topnavbar.hideNavbar();
+    let role = (<any>JSON.parse(localStorage.getItem("AccessToken")!).role);
+    if (!this.accountService.isAccessTokenExpired() && role!=null) {
+      this.navBar.setEvent("hello");
+      this.navBar.openNav();
+      if (role == "Admin") {
+        this.router.navigate(['admin']);
+      } else {
+        this.router.navigate(["carshow"]);
+      }
+    }
+    
   }
   login() {
     this.modalService.showPopup = true;
@@ -65,8 +75,6 @@ export class LoginComponent {
             } else {
               this.router.navigate(["carshow"]);
             }
-
-            
           }),
           error: (data => {
           })

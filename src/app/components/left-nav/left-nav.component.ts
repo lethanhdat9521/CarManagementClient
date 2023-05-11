@@ -16,6 +16,7 @@ export class LeftNavComponent {
     this.setRole();
     this.navBarService.getEvent().subscribe(event => {
       if (event == "hello") {
+        console.log("123");
         this.setRole();
       }
     })
@@ -23,6 +24,6 @@ export class LeftNavComponent {
 
   setRole() {
     this.role = (<any>JSON.parse(localStorage.getItem("AccessToken")!).role);
-
+    console.log("Role", this.role);
   }
 }
