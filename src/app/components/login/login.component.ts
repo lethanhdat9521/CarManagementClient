@@ -45,9 +45,7 @@ export class LoginComponent {
     this.modalService.showPopup = true;
     this.modalService.content = "Log you in ";
     this.modalService.type = modalType.Loading;
-    console.log("alolo", this.loginForm.value["account"]);
     //console.log("Value", this.loginForm.value["account"]);
-    this.loginForm.controls["password"].setValue("12345678");
     this.accountService.login(this.loginForm.value).subscribe({
       next: (data => {
         this.modalService.showPopup = false;
@@ -56,13 +54,18 @@ export class LoginComponent {
         localStorage.setItem("loginName", this.loginForm.value["account"]);
         AuthInterceptor.accessToken = (<any>data).o.token;
         this.accountService.getAccountInfo().subscribe({
-          next: (data => {
-            console.log("Success ", (<any>data));
-            localStorage.setItem("UserInfor", JSON.stringify(<any>data));
-            this.router.navigate(['profile']);
+          next: (data1 => {
+            console.log("Success ", (<any>data1));
+            localStorage.setItem("UserInfor", JSON.stringify(<any>data1));
+            let role = (<any>JSON.parse(localStorage.getItem("AccessToken")!).role);
+            if (role == "Admin") {
+              this.router.navigate(['admin']);
+            } else {
+              this.router.navigate(["carlist"]);
+            }
+            
           }),
           error: (data => {
-            console.log("Nhu loz ", data);
           })
         })
       }),

@@ -24,9 +24,7 @@ export class CarTableComponent implements OnInit{
       next: (carResponse) =>
       {
         this.carlist = carResponse;
-        this.modalService.showPopup = true;
-        this.modalService.content = "Success"
-        this.modalService.type = modalType.Success
+        this.modalService.showPopup = false;
         console.log(carResponse);
       },
       error: (response) =>

@@ -27,4 +27,13 @@ export class TopNavComponent {
     localStorage.removeItem("AccessToken");
     this.router.navigate(["login"]);
   }
+
+  navLogo() {
+    let role = (<any>JSON.parse(localStorage.getItem("AccessToken")!).role);
+    if (role == "Admin") {
+      this.router.navigate(['admin']);
+    } else {
+      this.router.navigate(["carshow"]);
+    }
+  }
 }
