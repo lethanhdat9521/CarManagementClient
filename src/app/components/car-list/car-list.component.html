@@ -16,7 +16,7 @@
     <!-- Begin page -->
     <div id="wrapper">
       <!-- Topbar Start -->
-      
+
       <!-- end Topbar -->
       <!-- ========== Left Sidebar Start ========== -->
       <div class="left-side-menu">
@@ -57,94 +57,111 @@
       <div class="content-page">
         <div class="content">
           <!-- Start container-fluid -->
-            <div class="container-fluid">
-                <!-- start  -->
-                <div class="row">
-                    <div class="col-12">
-                        <div>
-                            <h4 class="header-title mb-3">Cars</h4>
-                        </div>
-                    </div>
+          <div class="container-fluid">
+            <!-- start  -->
+            <div class="row">
+              <div class="col-12">
+                <div>
+                  <h4 class="header-title mb-3">Cars</h4>
                 </div>
-                <!-- end row -->
-
-                <div *ngIf="carlist && carlist.length > 0" class="row">
-                    <div *ngFor="let car of carlist" class="col-lg-4">
-                        <div class="text-center card-box ribbon-box">
-                            <div class="member-card">
-                                <!-- <div class="ribbon-rounded bg-warning">Founder</div> -->
-                                <div class="avatar-xl member-thumb mx-auto">
-                                    <img src="{{ car.image }}"
-                                         class="img-thumbnail"
-                                         alt="profile-image"
-                                         style="width: auto; height: auto" />
-                                </div>
-
-                                <div class="mt-3">
-                                    <h5 class="mt-2">{{ car.name }}</h5>
-                                    <p class="text-muted">
-                                        {{ car.type }} <span> | </span>
-                                        <span>
-                                            {{ car.color }}
-                                        </span>
-                                    </p>
-                                </div>
-
-                                <p class="text-muted font-13">
-                                    {{ car.brandName }}
-                                </p>
-
-                                <button type="button"
-                                        class="btn btn-info btn-bordered-info"
-                                        (click)="buy(car.id, 1)">
-                                    {{
-                                    car.price.toLocaleString("vi", {
-                                    style: "currency",
-                                    currency: "VND"
-                                    })
-                                    }}
-                                </button>
-                                <button style="margin-left: 20px"
-                                        class="btn btn-icon btn-primary">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <h6 class="font-14 mb-3">Default</h6>
-                <nav>
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </li>
-
-                        <li *ngFor="let page of pages" class="page-item"><button id="pageIdButton{{page}}" class="page-link" (click)="getCarListPagination(page)">{{page}}</button></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div *ngIf="!carlist || carlist.length == 0"
-                     class="alert alert-danger text-danger alert-dismissible fade show"
-                     role="alert">
-                    <button type="button"
-                            class="close"
-                            data-dismiss="alert"
-                            aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                    <strong>Oh snap!</strong> There are no cars at the moment.
-                </div>
-                <!-- end row -->
-                <!-- end row -->
+              </div>
             </div>
+            <!-- end row -->
+
+            <div *ngIf="carlist && carlist.length > 0" class="row">
+              <div *ngFor="let car of carlist" class="col-lg-4">
+                <div class="text-center card-box ribbon-box">
+                  <div class="member-card">
+                    <!-- <div class="ribbon-rounded bg-warning">Founder</div> -->
+                    <div class="avatar-xl member-thumb mx-auto">
+                      <img
+                        src="{{ car.image }}"
+                        class="img-thumbnail"
+                        alt="profile-image"
+                      />
+                    </div>
+
+                    <div class="mt-3">
+                      <h5 class="mt-2">{{ car.name }}</h5>
+                      <p class="text-muted">
+                        {{ car.type }} <span> | </span>
+                        <span>
+                          {{ car.color }}
+                        </span>
+                      </p>
+                    </div>
+
+                    <p class="text-muted font-13">
+                      {{ car.brandName }}
+                    </p>
+
+                    <button
+                      type="button"
+                      class="btn btn-info btn-bordered-info"
+                      (click)="buy(car.id, 1)"
+                    >
+                      {{
+                        car.price.toLocaleString("vi", {
+                          style: "currency",
+                          currency: "VND"
+                        })
+                      }}
+                    </button>
+                    <button
+                      style="margin-left: 20px"
+                      class="btn btn-icon btn-primary"
+                    >
+                      <i class="far fa-heart"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h6 class="font-14 mb-3">Default</h6>
+            <nav>
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+
+                <li *ngFor="let page of pages" class="page-item">
+                  <button
+                    id="pageIdButton{{ page }}"
+                    class="page-link"
+                    (click)="getCarListPagination(page)"
+                  >
+                    {{ page }}
+                  </button>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div
+              *ngIf="!carlist || carlist.length == 0"
+              class="alert alert-danger text-danger alert-dismissible fade show"
+              role="alert"
+            >
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+              <strong>Oh snap!</strong> There are no cars at the moment.
+            </div>
+            <!-- end row -->
+            <!-- end row -->
+          </div>
           <!-- end container-fluid -->
           <!-- Footer Start -->
           <footer class="footer">

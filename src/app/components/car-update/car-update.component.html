@@ -92,11 +92,27 @@
                         formControlName="name"
                       />
                       <span
+                        class="text-danger"
                         *ngIf="
                           getFormControl('name').hasError('required') &&
                           (getFormControl('name').touched || submitted)
                         "
                         >Please input car name!</span
+                      >
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          getFormControl('name').hasError('maxLength') &&
+                          (getFormControl('name').touched || submitted)
+                        "
+                        >Car name is too long!</span
+                      ><span
+                        class="text-danger"
+                        *ngIf="
+                          getFormControl('name').hasError('minLength') &&
+                          (getFormControl('name').touched || submitted)
+                        "
+                        >Car name is too short!</span
                       >
                     </div>
                     <div class="form-group">
@@ -108,11 +124,27 @@
                         formControlName="color"
                       />
                       <span
+                        class="text-danger"
                         *ngIf="
                           getFormControl('color').hasError('required') &&
                           (getFormControl('color').touched || submitted)
                         "
                         >Please input car color!</span
+                      >
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          getFormControl('color').hasError('maxLength') &&
+                          (getFormControl('color').touched || submitted)
+                        "
+                        >Car color is too long!</span
+                      ><span
+                        class="text-danger"
+                        *ngIf="
+                          getFormControl('color').hasError('minLength') &&
+                          (getFormControl('color').touched || submitted)
+                        "
+                        >Car color is too short!</span
                       >
                     </div>
                     <div class="form-group">
@@ -133,11 +165,27 @@
                         >Please input right phone format!</span
                       >
                       <span
+                        class="text-danger"
                         *ngIf="
                           getFormControl('type').hasError('required') &&
                           (getFormControl('type').touched || submitted)
                         "
                         >Please input car type!</span
+                      >
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          getFormControl('type').hasError('maxLength') &&
+                          (getFormControl('type').touched || submitted)
+                        "
+                        >Car type is too long!</span
+                      ><span
+                        class="text-danger"
+                        *ngIf="
+                          getFormControl('type').hasError('minLength') &&
+                          (getFormControl('type').touched || submitted)
+                        "
+                        >Car type is too short!</span
                       >
                     </div>
                     <div class="form-group">
@@ -150,11 +198,13 @@
                         formControlName="available"
                       />
                       <span
+                        class="text-danger"
                         *ngIf="
                           getFormControl('available').hasError('required') &&
                           (getFormControl('available').touched || submitted)
                         "
-                      ></span>
+                        >Please select status of the car!</span
+                      >
                     </div>
                     <div class="form-group">
                       <label for="type">Price</label>
@@ -167,18 +217,28 @@
                         formControlName="price"
                       />
                       <span
-                        *ngIf="
-                          getFormControl('price').hasError('pattern') &&
-                          (getFormControl('price').touched || submitted)
-                        "
-                        >Please input right price format!</span
-                      >
-                      <span
+                        class="text-danger"
                         *ngIf="
                           getFormControl('price').hasError('required') &&
                           (getFormControl('price').touched || submitted)
                         "
                         >Please input car price!</span
+                      >
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          getFormControl('price').hasError('min') &&
+                          (getFormControl('price').touched || submitted)
+                        "
+                        >Price is so cheap!</span
+                      >
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          getFormControl('price').hasError('max') &&
+                          (getFormControl('price').touched || submitted)
+                        "
+                        >Price is so expensive!</span
                       >
                     </div>
                     <div class="form-group">
@@ -234,7 +294,7 @@
     </div>
     <!-- end container-fluid -->
     <!-- Footer Start -->
-    <footer class="footer">
+    <!-- <footer class="footer">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
@@ -242,7 +302,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
     <!-- end Footer -->
   </div>
   <!-- end content -->

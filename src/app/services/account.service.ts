@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { AuthInterceptor } from '../inceptor/auth.interceptor';
 import { TokenResponse } from '../models/TokenResponse';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -92,5 +93,8 @@ export class AccountService {
     let url = environment.baseURL + 'Account/GetClientAccounts';
     //this.http.post()
     return this.http.get(url);
+  }
+  manageAccount(id: number): Observable<any> {
+    return this.http.delete<any>(environment.baseURL + 'account/deactivate?id=' + id);
   }
 }

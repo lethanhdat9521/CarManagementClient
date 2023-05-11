@@ -22,7 +22,7 @@ export class CarCreateComponent implements OnInit{
   /**
    *
    */
-  constructor(private formBuilder: FormBuilder, private carService:CarServiceService ,public modalService: ModalService, private route: Router) {
+  constructor(private formBuilder: FormBuilder, private carService:CarServiceService ,public modalService: ModalService, private router: Router) {
 
   }
   ngOnInit(): void {
@@ -42,11 +42,11 @@ export class CarCreateComponent implements OnInit{
   }
   validateForm() {
     this.createForm = this.formBuilder.group({
-      name: ["", [Validators.required]],
-      color: ["", [ Validators.required]],
-      type: ["", [Validators.required]],
+      name: ["", [Validators.required, Validators.maxLength(50), Validators.minLength(2)]],
+      color: ["", [ Validators.required], Validators.maxLength(20), Validators.minLength(2)],
+      type: ["", [Validators.required, Validators.maxLength(20), Validators.minLength(2)]],
       available: ["", [Validators.required]],
-      price: ["", [Validators.required]],
+      price: ["", [Validators.required, Validators.min(1000), Validators.max(20000000)]],
       image: [""],
       brandId:[""],
     })
@@ -78,13 +78,14 @@ export class CarCreateComponent implements OnInit{
   create() {
     this.carService.addCar(this.createForm.getRawValue()).subscribe({
       next: (data => {
-        console.log("awd",data);
+        if (data == 1)
+        this.router.navigate(["cartable"])
       }),
       error: (data => {
         console.log("Fail", data);
       })
     })
-    console.log("data", this.createForm.getRawValue());
+    // console.log("data", this.createForm.getRawValue());
   }
 
   chooseBrand(e : Event){
