@@ -102,17 +102,25 @@
                       <span
                         class="text-danger"
                         *ngIf="
-                          getFormControl('name').hasError('maxLength') &&
+                          getFormControl('name').hasError('maxlength') &&
                           (getFormControl('name').touched || submitted)
                         "
                         >Car name is too long!</span
                       ><span
                         class="text-danger"
                         *ngIf="
-                          getFormControl('name').hasError('minLength') &&
+                          getFormControl('name').hasError('minlength') &&
                           (getFormControl('name').touched || submitted)
                         "
                         >Car name is too short!</span
+                      >
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          getFormControl('name').hasError('pattern') &&
+                          (getFormControl('name').touched || submitted)
+                        "
+                        >Please input valid car name value!</span
                       >
                     </div>
                     <div class="form-group">
@@ -134,14 +142,14 @@
                       <span
                         class="text-danger"
                         *ngIf="
-                          getFormControl('color').hasError('maxLength') &&
+                          getFormControl('color').hasError('maxlength') &&
                           (getFormControl('color').touched || submitted)
                         "
                         >Car color is too long!</span
                       ><span
                         class="text-danger"
                         *ngIf="
-                          getFormControl('color').hasError('minLength') &&
+                          getFormControl('color').hasError('minlength') &&
                           (getFormControl('color').touched || submitted)
                         "
                         >Car color is too short!</span
@@ -158,13 +166,6 @@
                         formControlName="type"
                       />
                       <span
-                        *ngIf="
-                          getFormControl('type').hasError('pattern') &&
-                          (getFormControl('type').touched || submitted)
-                        "
-                        >Please input right phone format!</span
-                      >
-                      <span
                         class="text-danger"
                         *ngIf="
                           getFormControl('type').hasError('required') &&
@@ -175,17 +176,25 @@
                       <span
                         class="text-danger"
                         *ngIf="
-                          getFormControl('type').hasError('maxLength') &&
+                          getFormControl('type').hasError('maxlength') &&
                           (getFormControl('type').touched || submitted)
                         "
                         >Car type is too long!</span
                       ><span
                         class="text-danger"
                         *ngIf="
-                          getFormControl('type').hasError('minLength') &&
+                          getFormControl('type').hasError('minlength') &&
                           (getFormControl('type').touched || submitted)
                         "
                         >Car type is too short!</span
+                      >
+                      <span
+                        class="text-danger"
+                        *ngIf="
+                          getFormControl('type').hasError('pattern') &&
+                          (getFormControl('type').touched || submitted)
+                        "
+                        >Please input valid car type value!</span
                       >
                     </div>
                     <div class="form-group">
