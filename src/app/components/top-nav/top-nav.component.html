@@ -27,22 +27,10 @@
         </li>
 
         <li class="dropdown notification-list">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <i class="mdi mdi-bell noti-icon"></i>
-                <span class="badge badge-danger rounded-circle noti-icon-badge">4</span>
-            </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-lg">
 
                 <!-- item-->
-                <div class="dropdown-item noti-title">
-                    <h5 class="font-16 m-0">
-                        <span class="float-right">
-                            <a href="" class="text-dark">
-                                <small>Clear All</small>
-                            </a>
-                        </span>Notification
-                    </h5>
-                </div>
+                
 
                 <div class="slimscroll noti-scroll">
 
@@ -105,46 +93,33 @@
                 </div>
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <a href="/profile" class="dropdown-item notify-item">
                     <i class="mdi mdi-account-outline"></i>
-                    <span>Profile</span>
+                    <span>Edit Profile</span>
                 </a>
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <a href="/editPassword" class="dropdown-item notify-item">
                     <i class="mdi mdi-settings-outline"></i>
-                    <span>Settings</span>
+                    <span>Change password</span>
                 </a>
 
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <i class="mdi mdi-lock-outline"></i>
-                    <span>Lock Screen</span>
-                </a>
 
                 <div class="dropdown-divider"></div>
 
                 <!-- item-->
-                <a href="javascript:void(0);" (click)="logout()" class="dropdown-item notify-item">
+                <a (click)="logout()" class="dropdown-item notify-item">
                     <i class="mdi mdi-logout-variant"></i>
                     <span>Logout</span>
                 </a>
 
             </div>
         </li>
-
-        <li class="dropdown notification-list">
-            <a href="javascript:void(0);" class="nav-link right-bar-toggle">
-                <i class="mdi mdi-settings-outline noti-icon"></i>
-            </a>
-        </li>
-
-
     </ul>
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="index.html" class="logo text-center logo-dark">
+        <a (click)="navLogo()" class="logo text-center logo-dark">
             <span class="logo-lg">
                 <img src="assets\images\logo-dark.png" alt="" height="26">
                 <!-- <span class="logo-lg-text-dark">Simple</span> -->

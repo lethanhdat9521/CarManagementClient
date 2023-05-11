@@ -23,6 +23,7 @@ import { WarningModalComponent } from './components/warning-modal/warning-modal.
 import { CarTableComponent } from './components/car-table/car-table.component';
 import { CarCreateComponent } from './components/car-create/car-create.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ClientTableComponent } from './components/client-table/client-table.component';
 
 
@@ -44,6 +45,7 @@ import { ClientTableComponent } from './components/client-table/client-table.com
     CarTableComponent,
     CarCreateComponent,
     CarUpdateComponent,
+    PageNotFoundComponent,
     ClientTableComponent
   ],
   imports: [
